@@ -171,5 +171,9 @@ MESSAGE_TAGS = {
     messages_constants.ERROR: 'danger',
 }
 
+PAGSEGURO_TOKEN = 'F1769008022A463DA42E9A53DAB505A4'
+PAGSEGURO_EMAIL = 'kelverwt@gmail.com'
+PAGSEGURO_SANDBOX = True
+
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)

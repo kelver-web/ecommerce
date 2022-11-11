@@ -8,11 +8,11 @@
 
 {% block container_accounts %}
 <h2>Meus Pedidos</h2>
-<table class="table table-bordered">
+<table class="table table-striped table-bordered table-condensed table-hover">
     <thead>
         <tr>
             <th>
-                ID
+                Nº
             </th>
             <th>
                 Produtos
@@ -28,9 +28,9 @@
     <tbody>
         {% for order in object_list %}
         <tr>
-            <td>
-                <a href="{% url 'checkout:order_detail' order.pk %}">#{{ order.pk }}</a>
-            </td>
+            <th>
+                <a href="{% url 'checkout:order_detail' order.pk %}">{{ order.pk }}</a>
+            </th>
             <td>
                 {% for product in order.products %}
                 {{ product.name }}{% if not forloop.last %}<br />{% endif %}
@@ -46,5 +46,8 @@
         {% endfor %}
     </tbody>
 </table>
+{% block welcome %}
+{% endblock %}
+
 {% pagination request paginator page_obj %}
 {% endblock %}
